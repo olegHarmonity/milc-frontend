@@ -1,0 +1,19 @@
+/**
+  README
+
+  Use this file to override vuetify variables or to add new variables.
+  
+  This file contains ONLY variables, do NOT write styles here.
+
+  - https://vuetifyjs.com/en/features/sass-variables/
+  - https://vuetifyjs.com/en/api/vuetify/
+*/
+
+// Globals
+$body-font-family: "Poppins", sans-serif;
+$border-radius-root: 7px;
+
+// App
+$app-background: #191c21;
+$card-background: #212529;
+$border-gray: rgba(255, 255, 255, 0.12);

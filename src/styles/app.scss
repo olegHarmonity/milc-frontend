@@ -1,0 +1,226 @@
+/**
+  README
+
+  Use this file to write new classes that will be used across project, globally.
+
+  Any styles that are repeated in multiple components can be placed here, or inside their parent
+  components (wrappers, layouts etc.).
+
+  Important: Name your classes PRECISELY.
+    Good: page-title, user-card-header, page-subheading, sidebar-item...
+    Bad: title, header, subheading...
+
+  Do NOT use this file to override vuetify styles, use override.scss for that.
+  Do NOT use this file to override default HTML styles, use override.scss for that.
+  Do NOT use this file to create CSS variables, use variables.scss for that.
+  Do NOT write styles that are specific to only one component, use that style inside component.
+
+  Tend to put selectors in ALPHABETIC order and use nesting when it's appropriate.
+*/
+
+.v-application,
+.v-application .v-application--wrap {
+  // Add your styles here
+
+  // Utility classes
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .first-border-none {
+    > :first-child {
+      border: none !important;
+    }
+  }
+
+  .h-100 {
+    height: 100%;
+  }
+
+  .no-underline:not(:hover) {
+    text-decoration: none;
+  }
+
+  .text-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+
+  .w-33 {
+    width: 33.33%;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  // Component classes
+
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .basic-link {
+    text-decoration: none;
+  }
+
+  .box {
+    border: 1px solid #303338;
+    border-radius: $border-radius-root;
+    padding: 25px;
+  }
+
+  .btn-justify-left {
+    .v-btn__content {
+      justify-content: left;
+    }
+  }
+
+  .form-box {
+    border: 1px solid #303338;
+    border-radius: $border-radius-root;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .formatted-text {
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap; /* ancient Opera */
+    white-space: -o-pre-wrap; /* newer Opera */
+    white-space: pre-wrap; /* Chrome; W3C standard */
+    word-wrap: break-word; /* IE */
+  }
+
+  .item-group {
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .item {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+      .key {
+        display: inline-block;
+        margin-right: 10px;
+        color: var(--v-secondary-lighten5);
+      }
+    }
+  }
+
+  .list-selectable {
+    .v-list-item {
+      &:hover {
+        background-color: var(--v-secondary-base);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .page {
+    height: 100%;
+    margin-bottom: 20px;
+
+    .page-title {
+      margin-bottom: 15px;
+    }
+
+    .page-heading {
+      background-color: var(--v-primary-base);
+      margin-left: -50px;
+      margin-right: -50px;
+      padding: 15px 0px 15px 50px;
+      border-radius: $border-radius-root;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      @media #{map-get($display-breakpoints, 'sm-and-down')} {
+        & {
+          margin-right: -16px;
+        }
+      }
+    }
+
+    .page-section {
+      max-width: 1500px;
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    .seperator-x {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin-left: -50px;
+    }
+  }
+
+  .status-active,
+  .status-done,
+  .status-accepted {
+    .v-select__selection {
+      color: var(--v-success-darken2);
+    }
+  }
+
+  .status-declined {
+    .v-select__selection {
+      color: var(--v-error-base);
+    }
+  }
+
+  .status-todo {
+    .v-select__selection {
+      color: var(--v-warning-base);
+    }
+  }
+
+  .table-filters {
+    span {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .row-clickable {
+    tbody tr {
+      cursor: pointer;
+    }
+  }
+
+  .row-selected {
+    background-color: var(--v-primary-base) !important;
+
+    :first-child {
+      border-bottom-left-radius: $border-radius-root !important;
+      border-top-left-radius: $border-radius-root !important;
+    }
+
+    :last-child {
+      border-bottom-right-radius: $border-radius-root !important;
+      border-top-right-radius: $border-radius-root !important;
+    }
+  }
+
+  .v-card {
+    &.transparent-8 {
+      background-color: rgba(33, 37, 41, 0.8) !important;
+    }
+
+    &.transparent-9 {
+      background-color: rgba(33, 37, 41, 0.9);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}

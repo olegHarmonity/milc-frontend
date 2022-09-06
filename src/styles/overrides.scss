@@ -1,0 +1,339 @@
+/**
+  README
+
+  Use this file ONLY to override VUETIFY styles (on components, vuetify classes etc.)
+  or to override default style for HTML elements - tags (p, h1, a, etc.).
+
+  If override is used to change style in only one place (one view, component etc),
+  then write it within that component, not here. This file should be a default behavior
+  of all components.
+
+  Do NOT add custom classes here, use app.scss for that.
+  Do NOT add variables here, use variables.scss for that.
+
+  Tend to put selectors in ALPHABETIC order and use nesting when it's appropriate.
+*/
+
+@import "variables.scss";
+
+body {
+  font-family: $body-font-family;
+}
+
+.v-application.theme--dark,
+.v-application .v-application--wrap {
+  // Add your styles here
+
+  // HTML Tags ----------------------------------------------------------------------------
+  a {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-underline-offset: 1px;
+
+    &.router-link-active {
+      font-weight: 700;
+    }
+  }
+
+  h1 {
+    letter-spacing: 1.5px;
+  }
+
+  h2 {
+    letter-spacing: 1.3px;
+  }
+
+  h3 {
+    letter-spacing: 1px;
+  }
+
+  p {
+    letter-spacing: 0.5px;
+  }
+  // --------------------------------------------------------------------------------------
+
+  // Vuetify Classes ----------------------------------------------------------------------
+  .subtitle-1 {
+    letter-spacing: 0.5px !important;
+  }
+  // --------------------------------------------------------------------------------------
+
+  // Vuetify Components -------------------------------------------------------------------
+  .v-btn {
+    box-shadow: none;
+    text-transform: none;
+
+    &:not(.v-btn--round).v-size--default {
+      font-size: 17px;
+      height: 44px;
+    }
+  }
+
+  .v-btn-toggle {
+    background: transparent !important;
+
+    .v-btn {
+      &:not(.v-item--active) {
+        background-color: transparent !important;
+      }
+
+      &.v-item--active {
+        background-color: var(--v-primary-base);
+
+        &::before {
+          opacity: 0 !important;
+        }
+      }
+    }
+
+    &:not(.v-btn-toggle--group) {
+      .v-btn.v-btn {
+        border-color: rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+  }
+
+  .v-card {
+    box-shadow: none !important;
+
+    &.theme--dark {
+      background-color: $card-background;
+    }
+
+    .v-tabs-items {
+      background-color: transparent;
+    }
+
+    .v-card__actions {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .v-card__text {
+      color: inherit;
+      font-size: initial;
+    }
+
+    .v-card__actions,
+    .v-card__subtitle,
+    .v-card__text,
+    .v-card__title {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  .v-chip {
+    border-radius: 5px;
+
+    &.chip-transparent {
+      background-color: transparent !important;
+      border: 1px solid #555;
+    }
+  }
+
+  .v-data-table {
+    background-color: transparent;
+
+    thead {
+      th {
+        font-weight: normal;
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    tbody {
+      td {
+        letter-spacing: 0.75px;
+        border-bottom: 0 !important;
+        height: 60px;
+      }
+
+      tr:first-child:hover td:first-child {
+        border-top-left-radius: 0;
+      }
+
+      tr:first-child:hover td:last-child {
+        border-top-right-radius: 0;
+      }
+    }
+
+    td > .v-input {
+      .v-input__control {
+        min-height: 40px;
+      }
+
+      .v-input__slot {
+        background-color: var(--v-secondary-base);
+        box-shadow: none;
+
+        .v-select__selections {
+          color: var(--v-secondary-lighten5);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .v-input {
+    &.primary--text {
+      caret-color: #ffffff !important;
+      color: #ffffff !important;
+    }
+
+    &.v-text-field--outlined fieldset {
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .v-input__icon .v-icon {
+      color: #ffffff !important;
+    }
+  }
+
+  .v-input--is-readonly {
+    input {
+      cursor: initial;
+    }
+
+    .mdi-menu-down {
+      display: none;
+    }
+  }
+
+  .v-label {
+    color: #ffffff !important;
+
+    &.primary--text {
+      color: #ffffff !important;
+    }
+  }
+
+  .v-list {
+    .v-list-item {
+      color: #ffffff !important;
+    }
+  }
+
+  .v-messages {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .v-pagination {
+    button {
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  .v-select {
+    .v-icon {
+      &.primary--text {
+        color: white !important;
+      }
+    }
+  }
+
+  .v-slide-group {
+    .v-slide-group__prev,
+    .v-slide-group__next {
+      min-width: unset;
+      flex: 0 1;
+
+      .v-icon {
+        font-size: 50px;
+        width: 40px;
+      }
+    }
+  }
+
+  .v-stepper {
+    &.v-stepper--alt-labels {
+      .v-stepper__label {
+        text-align: center;
+      }
+    }
+  }
+
+  .v-text-field--solo {
+    .v-input__control {
+      .v-input__slot {
+        background-color: var(--v-secondary-base);
+        box-shadow: none !important;
+      }
+    }
+  }
+  // --------------------------------------------------------------------------------------
+}
+
+// Toast
+.v-toast {
+  .v-toast__item {
+    min-width: 150px;
+    min-height: 3em;
+    border-radius: $border-radius-root;
+
+    &.v-toast__item--success {
+      background-color: var(--v-success-darken2);
+    }
+
+    &.v-toast__item--error {
+      background-color: var(--v-error-darken2);
+    }
+
+    &.v-toast__item--info {
+      background-color: var(--v-info-darken2);
+    }
+
+    &.v-toast__item--warning {
+      background-color: var(--v-warning-darken2);
+    }
+
+    .v-toast__icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+    }
+
+    .v-toast__text {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+// ----------------------------------------------------------------------------------------
+
+// Input autofill  ------------------------------------------------------------------------
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
+}
+// ----------------------------------------------------------------------------------------
+
+// Scrollbar style ------------------------------------------------------------------------
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e3e3e3 #f6f6f7;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #191c21;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #373a3b;
+  // Line below commented becuase it breaks border-radius on some elements
+  // border-radius: 20px;
+  border-radius: 4px;
+}
