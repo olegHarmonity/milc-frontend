@@ -3,9 +3,6 @@
     <!-- Header -->
     <div class="text-center mb-5">
       <h1>{{ $t("login.heading") }}</h1>
-      <div class="subtitle-1">
-        {{ $t("login.subheading") }}
-      </div>
     </div>
 
     <v-row>
