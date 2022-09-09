@@ -3,7 +3,7 @@
     <v-main class="my-10 align-center">
       <v-container>
         <v-row>
-          <v-col cols="col" lg="8" xl="6" class="mx-auto">
+          <v-col cols="col" lg="10" xl="6" class="mx-auto">
             <router-view />
           </v-col>
         </v-row>

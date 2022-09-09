@@ -23,10 +23,10 @@
           All
         </span>
         <span
-          v-for="(genre, key) in $store.getters['movieGenres/items']"
+          v-for="genre in $store.getters['movieGenres/items']"
           class="pointer"
           :class="{ active: genre.id == filters.searchGenre }"
-          :key="key"
+          :key="genre.id"
           @click="setActiveGenre(genre.id)"
         >
           {{ genre.name }}

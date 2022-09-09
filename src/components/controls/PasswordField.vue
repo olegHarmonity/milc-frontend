@@ -1,5 +1,7 @@
 <template>
   <v-text-field
+    outlined
+    rounded
     v-model="password"
     v-bind="attrs"
     v-on="on"

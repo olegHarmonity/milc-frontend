@@ -16,13 +16,18 @@
 
 @import "variables.scss";
 
-body {
-  font-family: $body-font-family;
-}
-
+.v-application,
 .v-application.theme--dark,
 .v-application .v-application--wrap {
   // Add your styles here
+  font-family: "Neuropol", sans-serif;
+
+  .theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
+    background-color: red !important;
+    color: #fff !important;
+    opacity: 0.7 !important;
+    padding: 25px 0 !important;
+  }
 
   // HTML Tags ----------------------------------------------------------------------------
   a {

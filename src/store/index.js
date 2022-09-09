@@ -4,7 +4,6 @@ import Vuex from "vuex";
 import admin from "./admin";
 import auth from "./auth";
 import contracts from "./contracts";
-import city from "./city";
 import emails from "./emails";
 import feedback from "./feedback";
 import files from "./files";
@@ -29,7 +28,6 @@ export default new Vuex.Store({
     admin,
     auth,
     contracts,
-    city,
     emails,
     feedback,
     files,

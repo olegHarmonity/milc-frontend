@@ -1,5 +1,12 @@
 <template>
-  <v-autocomplete v-model="country" :items="items" v-bind="attrs" v-on="on">
+  <v-autocomplete
+    rounded
+    outlined
+    v-model="country"
+    :items="items"
+    v-bind="attrs"
+    v-on="on"
+  >
     <!-- Selection -->
     <template v-slot:selection="{ item }">
       <div :class="'mx-3 vti__flag ' + item.value.toLowerCase()"></div>

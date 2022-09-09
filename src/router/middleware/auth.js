@@ -2,15 +2,13 @@ import store from "@/store";
 import { ROLES } from "@/utils/config/constants";
 
 export default (roles = null) =>
-  function ({ to, next }) {
+  function ({ next }) {
     const user = store.getters["auth/user"];
 
     if (!user) {
-      const redirect = to.path + window.location.search;
-
+      //const redirect = to.path + window.location.search;
       return next({
         name: "auth.login",
-        query: { redirect },
       });
     }
 
