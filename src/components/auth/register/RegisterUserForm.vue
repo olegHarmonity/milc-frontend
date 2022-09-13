@@ -2,8 +2,10 @@
   <v-form v-model="formValid" @submit.prevent="handleNext" autocomplete="off">
     <div class="text-center">
       <h1 class="heading">{{ $t("register.user.heading") }}</h1>
+      <div class="subtitle-1">
+        {{ $t("register.user.subheading") }}
+      </div>
     </div>
-
     <v-img
       :src="require(`@/assets/logos/milc-56.png`)"
       width="60"
@@ -38,23 +40,10 @@
           <v-text-field
             outlined
             rounded
-            v-model="value.job_title"
-            :label="$t('labels.jobTitle')"
-            :rules="[rule.required]"
+            v-model="value.organization"
+            :label="$t('labels.orgName')"
           />
         </v-col>
-        <v-col>
-          <country-picker
-            v-model="value.country"
-            :attrs="{
-              label: $t('labels.country'),
-              rules: [rule.required],
-            }"
-          />
-        </v-col>
-      </v-row>
-
-      <v-row>
         <v-col>
           <v-text-field
             outlined
@@ -66,12 +55,25 @@
             autocomplete="username"
           />
         </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <country-picker
+            v-model="value.country"
+            :attrs="{
+              label: $t('labels.country'),
+              rules: [rule.required],
+            }"
+          />
+        </v-col>
         <v-col>
           <v-text-field
             outlined
             rounded
-            v-model="value.organization"
-            :label="Organization"
+            v-model="value.job_title"
+            :label="$t('labels.jobTitle')"
+            :rules="[rule.required]"
           />
         </v-col>
       </v-row>
@@ -109,7 +111,6 @@
 
     <div class="text-center mt-5">
       <v-btn
-        color="primary--text"
         rounded
         width="380"
         :disabled="!formValid"
@@ -123,8 +124,6 @@
 </template>
 
 <script>
-//import PhoneInput from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue";
-
 export default {
   props: {
     value: {

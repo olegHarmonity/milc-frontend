@@ -22,10 +22,13 @@
   // Add your styles here
   font-family: "Neuropol", sans-serif;
 
+  .theme--dark.v-btn.v-btn--has-bg {
+    background-color: green !important;
+  }
+
   .theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
-    background-color: red !important;
+    background-color: rgba(255, 0, 0, 0.7) !important;
     color: #fff !important;
-    opacity: 0.7 !important;
     padding: 25px 0 !important;
   }
 
@@ -60,6 +63,7 @@
   // Vuetify Classes ----------------------------------------------------------------------
   .subtitle-1 {
     letter-spacing: 0.5px !important;
+    font-family: "Neuropol", sans-serif !important;
   }
   // --------------------------------------------------------------------------------------
 

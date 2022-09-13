@@ -7,7 +7,7 @@
 import adminRoutes from "./admin";
 import appRoutes from "./app";
 import authRoutes from "./auth";
-import authMiddleware from "../middleware/auth";
+// import authMiddleware from "../middleware/auth";
 
 const routes = [
   adminRoutes,
@@ -17,9 +17,9 @@ const routes = [
     path: "/",
     name: "home",
     component: () => import("../../views/Categories.vue"),
-    meta: {
-      middleware: [authMiddleware()],
-    },
+    // meta: {
+    //   middleware: [authMiddleware()],
+    // },
   },
   {
     path: "/404",

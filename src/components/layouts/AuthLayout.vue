@@ -18,7 +18,7 @@ export default {};
 
 <style>
 .auth-layout {
-  background: url("../../assets/images/auth-background.png") center center !important;
+  background: url("../../assets/images/Background_01.jpg") center center !important;
   background-repeat: no-repeat;
   background-size: cover !important;
 }

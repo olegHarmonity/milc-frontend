@@ -12,7 +12,6 @@ export default new Vuetify({
     options: { customProperties: true },
     themes: {
       dark: {
-        primary: "red",
         secondary: "#2B2E34",
       },
     },

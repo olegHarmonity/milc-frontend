@@ -1,14 +1,25 @@
 <template>
   <v-form v-model="formValid" @submit.prevent="handleSubmit">
     <!-- Header -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-12">
       <h1>{{ $t("login.heading") }}</h1>
+      <div class="subtitle-1">
+        {{ $t("login.subheading") }}
+      </div>
+      <v-img
+        :src="require(`@/assets/logos/milc-56.png`)"
+        width="60"
+        class="mx-auto cursor-pointer"
+        @click="$router.push({ name: 'home' })"
+      />
     </div>
 
     <v-row>
       <!-- Email -->
       <v-col cols="12">
         <v-text-field
+          outlined
+          rounded
           v-model="formData.email"
           :label="$t('labels.email')"
           :rules="[rule.required, rule.email]"
@@ -29,7 +40,7 @@
     </v-row>
 
     <!-- Forgot password button -->
-    <small class="d-block text-right mb-8">
+    <small class="d-block text-right mb-14">
       <router-link :to="{ name: 'auth.forgot-password' }">
         {{ $t("login.forgotPassword") }}
       </router-link>
@@ -40,6 +51,7 @@
 
     <!-- Submit button -->
     <v-btn
+      rounded
       color="primary"
       type="submit"
       :disabled="!formValid"
