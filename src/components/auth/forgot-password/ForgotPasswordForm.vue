@@ -3,18 +3,26 @@
     v-model="formValid"
     @submit.prevent="handleSubmit"
     class="mx-auto"
-    style="max-width: 400px"
+    style="max-width: 480px"
   >
-    <div class="text-center mb-5">
-      <h1>{{ $t("forgotPassword.heading") }}</h1>
+    <div class="text-center mb-5 mx-auto">
+      <h1 class="mb-3">{{ $t("forgotPassword.heading") }}</h1>
       <div class="subtitle-1">
         {{ $t("forgotPassword.subheading") }}
       </div>
+      <v-img
+        :src="require(`@/assets/logos/milc-56.png`)"
+        width="60"
+        class="mx-auto cursor-pointer"
+        @click="$router.push({ name: 'home' })"
+      />
     </div>
 
     <v-row>
-      <v-col cols="12">
+      <v-col>
         <v-text-field
+          rounded
+          outlined
           v-model="formData.email"
           :label="$t('labels.email')"
           :rules="[rule.required, rule.email]"
@@ -32,6 +40,7 @@
     <api-response :response="formResponse" class="mt-5" />
 
     <v-btn
+      rounded
       color="primary"
       type="submit"
       :disabled="!formValid"

@@ -1,11 +1,11 @@
-//import authMiddleware from "../middleware/auth";
+import authMiddleware from "../middleware/auth";
 // import { ROLES } from "@/utils/config/constants";
 
 export default {
   path: "/app",
-  // meta: {
-  //   middleware: [authMiddleware()],
-  // },
+  meta: {
+    middleware: [authMiddleware()],
+  },
   component: () => import("@/components/layouts/AppLayout.vue"),
   children: [
     {

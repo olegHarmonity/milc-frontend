@@ -22,14 +22,24 @@
   // Add your styles here
   font-family: "Neuropol", sans-serif;
 
-  .theme--dark.v-btn.v-btn--has-bg {
-    background-color: green !important;
-  }
+  // .theme--dark.v-btn.v-btn--has-bg {
+  //   background-color: #630e17 !important;
+  // }
 
   .theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
     background-color: rgba(255, 0, 0, 0.7) !important;
     color: #fff !important;
     padding: 25px 0 !important;
+  }
+
+  .v-item--active {
+    background-color: red !important;
+    border: none;
+  }
+
+  .v-text-field .v-file-input {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   // HTML Tags ----------------------------------------------------------------------------

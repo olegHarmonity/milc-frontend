@@ -14,12 +14,20 @@
       <div class="subtitle-1 ml-10 ml-sm-0">
         {{ $t("register.org.subheading") }}
       </div>
+      <v-img
+        :src="require(`@/assets/logos/milc-56.png`)"
+        width="60"
+        class="mx-auto cursor-pointer"
+        @click="$router.push({ name: 'home' })"
+      />
     </div>
 
     <div>
       <v-row>
         <v-col cols="12" sm="6">
           <v-text-field
+            outlined
+            rounded
             v-model="value.organisation.organisation_name"
             :label="$t('labels.orgName')"
             :rules="[rule.required]"
@@ -29,6 +37,8 @@
 
         <v-col cols="12" sm="6">
           <v-text-field
+            outlined
+            rounded
             v-model="value.organisation.registration_number"
             :label="$t('labels.registrationNumber')"
           />
@@ -49,6 +59,8 @@
 
         <v-col cols="12" sm="6">
           <v-select
+            outlined
+            rounded
             v-model="value.organisation.organisation_type_id"
             :label="$t('labels.orgType')"
             :rules="[rule.required]"
@@ -60,28 +72,7 @@
       </v-row>
 
       <v-row>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="value.organisation.email"
-            :label="$t('labels.email')"
-            :rules="[rule.required, rule.email]"
-            type="email"
-          />
-        </v-col>
-        <v-col cols="12" md="6">
-          <PhoneInput
-            v-model="value.organisation.telephone_number"
-            :label="$t('labels.telephone')"
-            placeholder=""
-            :preferredCountries="['DE', 'US']"
-            :rules="[rule.phone]"
-            mode="international"
-          />
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col cols="12" md="6">
+        <v-col cols="12" sm="6">
           <v-textarea
             v-model="value.organisation.description"
             :label="$t('labels.description')"
@@ -92,41 +83,74 @@
             maxlength="500"
           />
         </v-col>
+        <v-col cols="12" sm="6">
+          <v-item-group
+            v-model="value.organisation.organisation_role"
+            class="d-flex justify-space-between mb-7"
+          >
+            <v-item value="buyer" v-slot="{ active, toggle }">
+              <v-btn rounded outlined @click="toggle">
+                {{ $t("org.buyer") }}
+              </v-btn>
+            </v-item>
 
-        <v-col cols="col">
-          <v-btn-toggle
+            <v-item value="seller" v-slot="{ active, toggle }">
+              <v-btn rounded outlined @click="toggle">
+                {{ $t("org.seller") }}
+              </v-btn>
+            </v-item>
+            <v-item value="both" v-slot="{ active, toggle }">
+              <v-btn rounded outlined @click="toggle">
+                {{ $t("org.both") }}
+              </v-btn>
+            </v-item>
+          </v-item-group>
+
+          <!-- <v-item-group
             v-model="value.organisation.organisation_role"
             mandatory
-            class="w-100 mb-4"
+            class="mb-4 w-150 justify-space-between"
           >
-            <v-btn value="buyer" class="w-33">
-              {{ $t("org.buyer") }}
-            </v-btn>
+            <v-item value="buyer">
+              <v-btn rounded outlined class="w-30 mr-10">
+                {{ $t("org.buyer") }}
+              </v-btn>
+            </v-item>
 
-            <v-btn value="seller" class="w-33">
-              {{ $t("org.seller") }}
-            </v-btn>
-
-            <v-btn value="both" class="w-33">
-              {{ $t("org.both") }}
-            </v-btn>
-          </v-btn-toggle>
-
+            <v-item value="seller">
+              <v-btn rounded outlined class="w-30 mr-10">
+                {{ $t("org.seller") }}
+              </v-btn>
+            </v-item>
+            <v-item value="both">
+              <v-btn rounded outlined class="w-30">
+                {{ $t("org.both") }}
+              </v-btn>
+            </v-item>
+          </v-item-group> -->
           <v-text-field
+            rounded
+            outlined
             v-model="value.organisation.website_link"
             :label="$t('labels.website')"
             :rules="[rule.url]"
           />
-
-          <v-file-input
-            v-model="value.organisation.logo"
-            :label="$t('labels.orgLogo')"
-            accept=".jpg, .jpeg, .png"
-            show-size
-            prepend-icon=""
-            hide-details="auto"
-            truncate-length="15"
-          ></v-file-input>
+          <v-row class="d-flex justify-space-between pl-5">
+            <v-col cols="8" class="d-flex align-center">
+              <span>Company logo</span>
+            </v-col>
+            <v-col cols="2" class="d-flex justify-end pt-0">
+              <v-file-input
+                v-model="value.organisation.logo"
+                :label="$t('labels.orgLogo')"
+                accept=".jpg, .jpeg, .png"
+                show-size
+                prepend-icon="$vuetify.icons.upload"
+                hide-details="auto"
+                hide-input
+              ></v-file-input
+            ></v-col>
+          </v-row>
         </v-col>
       </v-row>
     </div>
@@ -135,6 +159,7 @@
 
     <div class="text-center mt-5">
       <v-btn
+        rounded
         color="primary"
         width="280"
         type="submit"
@@ -148,11 +173,7 @@
 </template>
 
 <script>
-import PhoneInput from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue";
-
 export default {
-  components: { PhoneInput },
-
   props: {
     value: {
       type: Object,
