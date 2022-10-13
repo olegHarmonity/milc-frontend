@@ -1,7 +1,7 @@
 <template>
   <v-autocomplete
-    rounded
-    outlined
+    :rounded="rounded"
+    :outlined="outlined"
     v-model="country"
     :items="items"
     v-bind="attrs"
@@ -38,6 +38,12 @@ export default {
     },
     on: {
       type: Object,
+    },
+    rounded: {
+      type: Boolean,
+    },
+    outlined: {
+      type: Boolean,
     },
   },
 

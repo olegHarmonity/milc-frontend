@@ -19,7 +19,7 @@
       <!-- Routes -->
       <template v-for="item in menu">
         <v-btn
-          class="nav-item px-5 py-7 mx-7"
+          class="nav-item px-5 py-7 mx-7 mb-2"
           v-if="item.visible"
           :key="item.text"
           :to="{ name: item.route }"
@@ -214,7 +214,7 @@ export default {
   methods: {
     handleLogout() {
       this.$store.dispatch("auth/logout").finally(() => {
-        this.$router.replace({ name: "home" });
+        this.$router.replace({ name: "auth.login" });
       });
     },
   },
@@ -223,7 +223,7 @@ export default {
 
 <style lang="scss">
 #app-navigation {
-  background-color: $app-background;
+  background-color: none;
   padding-top: 40px;
 
   .nav-item {

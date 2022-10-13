@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss">
 #app-header-small {
-  background-color: $app-background;
+  background: none;
 
   .v-toolbar__content {
     padding-left: 0;

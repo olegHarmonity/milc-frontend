@@ -3,19 +3,20 @@
     <div>
       <v-row>
         <v-col cols="12" sm="6" class="pr-md-10">
-          <v-label>{{ $t("labels.passwordCurrent") }}<req /></v-label>
           <password-field
+            :label="$t('labels.passwordCurrent')"
             v-model="formData.old_password"
             :attrs="{
+              label: $t('labels.passwordCurrent'),
               rules: [rule.required],
             }"
           />
         </v-col>
         <v-col cols="12" sm="6" class="pl-md-10">
-          <v-label>{{ $t("labels.passwordNew") }}<req /></v-label>
           <password-field
             v-model="formData.new_password"
             :attrs="{
+              label: $t('labels.passwordNew'),
               rules: [rule.required, rule.password],
             }"
           />
@@ -24,10 +25,10 @@
 
       <v-row>
         <v-col cols="12" sm="6" offset-sm="6" class="pl-md-10">
-          <v-label>{{ $t("labels.passwordConfirm") }}<req /></v-label>
           <password-field
             v-model="formData.password_confirmation"
             :attrs="{
+              label: $t('labels.passwordConfirm'),
               rules: [
                 rule.required,
                 rule.same($t('labels.passwordNew'), formData.new_password),
@@ -42,6 +43,7 @@
 
     <div class="text-end mt-5">
       <v-btn
+        rounded
         color="primary"
         width="200"
         :disabled="!formValid"

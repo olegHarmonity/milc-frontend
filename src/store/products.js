@@ -75,6 +75,7 @@ export default {
         commit("SET_LOADING", { key: "fetchAll", value: true });
 
         const res = await axios.get("products", { params });
+
         commit("SET_ITEMS", res.data.data);
         commit("SET_TOTAL", res.data.total);
 

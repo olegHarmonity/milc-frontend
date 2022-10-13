@@ -1,0 +1,42 @@
+<template>
+  <svg
+    id="Arboard_1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 426.25 426.25"
+  >
+    <defs></defs>
+    <title>Approved_01</title>
+    <g id="Layer_24" data-name="Layer 24">
+      <g class="cls-1">
+        <path
+          class="cls-2"
+          d="M1894.6,698.68c-117.15,0-212.12,95-212.12,212.12s95,212.13,212.12,212.13,212.12-95,212.12-212.13S2011.75,698.68,1894.6,698.68Zm0,387.54A175.42,175.42,0,1,1,2070,910.8,175.42,175.42,0,0,1,1894.6,1086.22Z"
+          transform="translate(-1681.48 -697.68)"
+        />
+        <path
+          class="cls-2"
+          d="M1772.58,920.16l84.36,85.27a13.06,13.06,0,0,0,18.83-.27l148.79-159.44c7-7.48-2.74-18.66-11.12-12.79L1872,942.29a13.05,13.05,0,0,1-11.8,1.63l-78.73-37.8C1772.92,903.14,1766.22,913.73,1772.58,920.16Z"
+          transform="translate(-1681.48 -697.68)"
+        />
+      </g>
+    </g>
+  </svg>
+</template>
+
+<script>
+export default {
+  name: "Upload",
+};
+</script>
+
+<style>
+.cls-1 {
+  opacity: 0.9;
+}
+.cls-2 {
+  fill: #fff;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+</style>

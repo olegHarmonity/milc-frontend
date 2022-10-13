@@ -50,7 +50,7 @@ export default {
 
     async getItemsForAsset({ commit }, assetId) {
       try {
-        // const res = await mediaAxios.get(`assets/${assetId}/items`);
+        //  const res = await mediaAxios.get(`assets/${assetId}/items`);
         const res = await mainAxios.get(`assets/${assetId}/items`);
         commit("SET_ITEMS", res.data);
 

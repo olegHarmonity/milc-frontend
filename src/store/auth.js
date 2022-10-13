@@ -48,7 +48,7 @@ export default {
 
         const res = await axios.get("me");
         const user = res.data.data;
-
+        console.log(user);
         if (!user || !user.id) {
           commit("SET_USER", null);
           return Promise.reject();

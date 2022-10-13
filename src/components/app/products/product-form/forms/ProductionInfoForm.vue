@@ -6,15 +6,19 @@
     <v-row class="page-section">
       <!-- Left -->
       <v-col class="pr-md-10" cols="12" md="6">
-        <v-label>{{ $t("labels.productionYear") }}<req /></v-label>
         <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.productionYear')"
           v-model="value.production_info.production_year"
           v-mask="'####'"
           :rules="[rule.required, rule.year]"
         />
 
-        <v-label>{{ $t("labels.releaseYear") }}<req /></v-label>
         <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.releaseYear')"
           v-model="value.production_info.release_year"
           v-mask="'####'"
           :rules="[rule.required, rule.year]"
@@ -23,10 +27,12 @@
 
       <!-- Right -->
       <v-col class="pl-md-10" cols="12" md="6">
-        <v-label>{{ $t("labels.countryOrigin") }}<req /></v-label>
         <country-picker
+          rounded="true"
+          outlined="true"
           v-model="value.production_info.country_of_origin"
           :attrs="{
+            label: $t('labels.countryOrigin'),
             rules: [rule.required],
           }"
         />
@@ -105,19 +111,25 @@
     <!-- Box office -->
     <v-row class="page-section">
       <v-col class="pr-md-10" cols="12" md="6">
-        <v-label>{{ $t("labels.boxOffice") }}</v-label>
+        <p class="mb-5">{{ $t("labels.boxOffice") }}</p>
 
         <v-text-field
+          rounded
+          outlined
           v-model="value.production_info.box_office.globalGbo"
           :placeholder="$t('labels.gboGlobal')"
         />
 
         <v-text-field
+          rounded
+          outlined
           v-model="value.production_info.box_office.domesticGbo"
           :placeholder="$t('labels.gboDomestic')"
         />
 
         <v-text-field
+          rounded
+          outlined
           v-model="value.production_info.box_office.internationalGbo"
           :placeholder="$t('labels.gboInternational')"
         />

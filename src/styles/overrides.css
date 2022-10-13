@@ -23,6 +23,9 @@
   - https://vuetifyjs.com/en/features/sass-variables/
   - https://vuetifyjs.com/en/api/vuetify/
 */
+body {
+  font-family: "Lato", sans-serif;
+}
 
 .v-application.theme--dark a,
 .v-application .v-application--wrap a {

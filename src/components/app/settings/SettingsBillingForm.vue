@@ -4,8 +4,10 @@
     <v-row>
       <!-- IBAN -->
       <v-col cols="12" sm="6" class="pr-md-10">
-        <v-label>{{ $t("labels.iban") }}<req /></v-label>
         <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.iban')"
           v-model="formData.iban"
           :rules="[rule.required, rule.string.min(5), rule.string.max(34)]"
           maxlength="34"
@@ -14,8 +16,10 @@
 
       <!-- SWIFT -->
       <v-col cols="12" sm="6" class="pl-md-10">
-        <v-label>{{ $t("labels.swift") }}<req /></v-label>
         <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.swift')"
           v-model="formData.swift_bic"
           :rules="[rule.required, rule.string.min(8), rule.string.max(11)]"
           maxlength="11"
@@ -24,8 +28,13 @@
 
       <!-- Bank name -->
       <v-col cols="12" sm="6" class="pr-md-10">
-        <v-label>{{ $t("labels.bankName") }}<req /></v-label>
-        <v-text-field v-model="formData.bank_name" :rules="[rule.required]" />
+        <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.bankName')"
+          v-model="formData.bank_name"
+          :rules="[rule.required]"
+        />
       </v-col>
     </v-row>
 
@@ -86,6 +95,7 @@
 
     <div class="text-end mt-5">
       <v-btn
+        rounded
         color="primary"
         width="200"
         :disabled="!formValid"

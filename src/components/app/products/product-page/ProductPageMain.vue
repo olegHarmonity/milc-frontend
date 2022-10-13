@@ -11,7 +11,7 @@
               product.marketing_assets.key_artwork.image_url =
                 $placeholderImage('170x250')
             "
-            width="185"
+            width="200"
             class="rounded-lg"
           />
         </v-col>
@@ -19,7 +19,6 @@
         <v-col>
           <!-- Title -->
           <h1>{{ product.title }}</h1>
-
           <!-- Type, duration -->
           <small style="opacity: 0.8">
             <span class="mr-3">
@@ -56,6 +55,11 @@
             >
               {{ format.name }}
             </v-chip>
+          </div>
+          <div v-if="!myProduct" class="mt-2">
+            <v-btn @click="saveProduct">{{
+              isSaved ? "Remove from saved" : "Add to saved"
+            }}</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -165,12 +169,24 @@ import VideoPlayer from "@/components/common/VideoPlayer.vue";
 
 export default {
   components: { VideoPlayer },
-
+  data() {
+    return {
+      isSaved: null,
+      myProduct: false,
+    };
+  },
   props: {
     product: {
       type: Object,
       required: true,
     },
+  },
+
+  mounted() {
+    this.isSaved = this.product.is_saved;
+    this.myProduct =
+      this.product.organisation_id ==
+      this.$store.getters["auth/user"].organisation_id;
   },
 
   computed: {
@@ -187,6 +203,14 @@ export default {
       return this.product.items.filter((i) =>
         i.fileName.split("/")[1].startsWith(prefix + "_")
       );
+    },
+    saveProduct() {
+      const route = `products/${
+        this.isSaved ? "removeSavedProduct" : "saveProduct"
+      }`;
+      this.$store.dispatch(route, this.product.id).then(() => {
+        this.isSaved = !this.isSaved;
+      });
     },
   },
 };

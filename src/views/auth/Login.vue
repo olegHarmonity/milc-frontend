@@ -61,7 +61,7 @@ export default {
   methods: {
     handleSuccessLogin() {
       const adminLocation = this.$route.query.redirect || { name: "admin" };
-      const userLocation = this.$route.query.redirect || { name: "app" };
+      const userLocation = this.$route.query.redirect || { name: "home" };
 
       this.$router.replace(
         this.$user.role === ROLES.ADMIN ? adminLocation : userLocation

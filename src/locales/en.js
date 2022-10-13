@@ -196,7 +196,7 @@ export default {
     subheading: "Link with instruction will be sent to your email",
     success: {
       heading: "Check your email",
-      text1: "You will recieve and email with a reset password link.",
+      text1: "You will recieve an email with a reset password link.",
       text2: "Check your inbox and follow the reset password link.",
     },
   },
@@ -324,6 +324,7 @@ export default {
     unreleased: "Unreleased",
     upload: "Upload",
     user: "User",
+    userLogo: "User logo",
     vat: "VAT",
     vatCountry: "VAT per country",
     vatDomestic: "Domestic VAT",

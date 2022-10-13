@@ -20,16 +20,16 @@
 .v-application.theme--dark,
 .v-application .v-application--wrap {
   // Add your styles here
-  font-family: "Neuropol", sans-serif;
+  font-family: "Lato", "Raleway", sans-serif;
 
-  // .theme--dark.v-btn.v-btn--has-bg {
-  //   background-color: #630e17 !important;
-  // }
+  .theme--dark.v-btn.v-btn--has-bg {
+    background-color: #630e17 !important;
+  }
 
   .theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
-    background-color: rgba(255, 0, 0, 0.7) !important;
+    background-color: rgba(255, 0, 0, 0.6) !important;
     color: #fff !important;
-    padding: 25px 0 !important;
+    padding: 25px !important;
   }
 
   .v-item--active {

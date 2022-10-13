@@ -34,6 +34,7 @@
 
     <v-main>
       <router-view />
+
       <slot />
     </v-main>
 
@@ -62,7 +63,9 @@ export default {
 <style lang="scss">
 .home-layout {
   main {
-    background-color: #191c21;
+    background: url("../../assets/images/Background_01.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
   }
 }
 </style>

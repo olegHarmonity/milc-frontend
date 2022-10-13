@@ -75,7 +75,9 @@ body {
 }
 
 #app-layout {
-  background-color: $app-background;
+  background: url("../../assets/images/Background_01.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 
   .app-container {
     padding-left: 100px;

@@ -26,6 +26,6 @@ export default (roles = null) =>
       }
     }
 
-    const route = user.role == ROLES.ADMIN ? "admin" : "app";
+    const route = user.role == ROLES.ADMIN ? "admin" : "home";
     return next({ name: route });
   };

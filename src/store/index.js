@@ -20,6 +20,7 @@ import organisationTypes from "./organisationTypes";
 import people from "./people";
 import products from "./products";
 import users from "./users";
+import cart from "./cart";
 
 Vue.use(Vuex);
 
@@ -44,5 +45,6 @@ export default new Vuex.Store({
     people,
     products,
     users,
+    cart,
   },
 });

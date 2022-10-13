@@ -1,5 +1,12 @@
 <template>
   <div class="single-category">
+    <!-- <div
+      v-if="!$store.getters['products/myProducts'].length && !loaded"
+      class="d-flex w-100 h-100"
+      style="position: absolute"
+    >
+      <MilcLoader class="mx-auto my-auto" />
+    </div> -->
     <div class="single-category-navigation">
       <div
         class="nav-icon-wrapper pointer"
@@ -24,7 +31,7 @@
         </span>
         <span
           v-for="genre in $store.getters['movieGenres/items']"
-          class="pointer"
+          class="pointer decorative-font"
           :class="{ active: genre.id == filters.searchGenre }"
           :key="genre.id"
           @click="setActiveGenre(genre.id)"
@@ -38,7 +45,7 @@
       <div class="single-category-content" id="single-category-content">
         <div
           v-if="$store.getters['products/myProducts'].length && loaded"
-          :style="{ 'grid-template-columns': `repeat(${itemWidth}, 154px)` }"
+          :style="{ 'grid-template-columns': `repeat(${itemWidth}, 200px)` }"
         >
           <ProductsSingleCatetgoryItem
             v-for="(item, key) in getProducts"
@@ -224,6 +231,7 @@
 <script>
 import { forEach, filter, ceil } from "lodash";
 import ProductsSingleCatetgoryItem from "@/components/app/products/ProductsSingleCatetgoryItem";
+//import MilcLoader from "@/components/common/MilcLoader.vue";
 
 export default {
   name: "ProductsSingleCategory",
@@ -284,7 +292,12 @@ export default {
     } else {
       this.genres = this.$store.getters["movieGenres/items"];
     }
-    this.products = await this.fetchProducts();
+
+    this.products = await this.$store.dispatch(
+      "products/fetchProductsBySearch",
+      { genre_id: "all" }
+    );
+
     this.createYears();
     this.getItemWidth();
     window.addEventListener("resize", this.getItemWidth);
@@ -323,7 +336,8 @@ export default {
       const parentWidth = document.getElementById(
         "single-category-content"
       ).offsetWidth;
-      const itemsLength = parseInt((parentWidth / 154).toString(), 10);
+
+      const itemsLength = parseInt((parentWidth / 200).toString(), 10);
       this.itemWidth =
         itemsLength > this.$store.getters["products/myProducts"].length
           ? this.$store.getters["products/myProducts"].length
@@ -396,10 +410,12 @@ export default {
     async fetchProducts() {
       window.scrollTo(0, 0);
       const payloadData = this.createQueryParams();
+      console.log(payloadData);
       this.products = await this.$store.dispatch(
         "products/fetchProductsBySearch",
         payloadData
       );
+
       this.getItemWidth();
     },
     createYears() {
@@ -464,7 +480,7 @@ export default {
 
 <style lang="scss" scoped>
 .single-category {
-  background: #191c21;
+  background: none;
   position: relative;
   .single-category-navigation {
     display: flex;

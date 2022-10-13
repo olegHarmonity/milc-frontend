@@ -3,6 +3,8 @@
     <!-- Country picker -->
     <v-col v-if="country">
       <country-picker
+        :rounded="false"
+        :outlined="false"
         v-model="model.country"
         :attrs="{
           placeholder: $t('labels.country'),

@@ -21,8 +21,7 @@
 
     <div class="text-right mt-3">
       <v-btn
-        color="primary"
-        class="px-15"
+        rounded
         type="submit"
         :disabled="!formValid"
         :loading="formLoading"

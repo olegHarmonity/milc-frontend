@@ -1,5 +1,8 @@
 <template>
   <v-autocomplete
+    rounded
+    outlined
+    :label="fieldLabel"
     v-model="country"
     :items="items"
     v-bind="attrs"
@@ -26,6 +29,9 @@ export default {
     },
     on: {
       type: Object,
+    },
+    fieldLabel: {
+      type: String,
     },
   },
 

@@ -24,7 +24,30 @@
         </v-col>
 
         <!-- Right -->
-        <v-col cols="1" class="d-flex align-center justify-end">
+        <v-col cols="2" class="d-flex align-center justify-end">
+          <div>
+            <router-link
+              class="basic-link"
+              :to="{
+                name: 'app.savedProducts',
+              }"
+            >
+              <v-icon large>mdi-heart </v-icon>
+            </router-link>
+          </div>
+
+          <v-btn icon link :to="$platformRoute" class="ml-3">
+            <v-img
+              v-if="logo"
+              :src="logo"
+              id="user-logo"
+              width="30"
+              height="30"
+              max-width="30"
+            ></v-img>
+            <v-icon v-else size="40">mdi-account-circle</v-icon>
+          </v-btn>
+
           <v-app-bar-nav-icon @click="$emit('toggle-nav')" />
         </v-col>
       </v-row>
@@ -33,11 +56,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    logo() {
+      if (this.$store.getters["auth/user"].image) {
+        return this.$store.getters["auth/user"].image.image_url;
+      }
+      return null;
+    },
+  },
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app-header-large {
-  background-color: $app-background;
+  background: none;
+
+  #user-logo {
+    border-radius: 50%;
+    display: block;
+  }
 }
 </style>

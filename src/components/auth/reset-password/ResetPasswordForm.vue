@@ -10,6 +10,12 @@
       <div class="subtitle-1">
         {{ $t("resetPassword.subheading") }}
       </div>
+      <v-img
+        :src="require(`@/assets/logos/milc-56.png`)"
+        width="60"
+        class="mx-auto cursor-pointer"
+        @click="$router.push({ name: 'home' })"
+      />
     </div>
 
     <v-row>
@@ -46,6 +52,7 @@
     <api-response :response="formResponse" class="mt-5" />
 
     <v-btn
+      rounded
       color="primary"
       type="submit"
       :disabled="!formValid"

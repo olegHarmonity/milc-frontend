@@ -10,16 +10,29 @@ import authRoutes from "./auth";
 import authMiddleware from "../middleware/auth";
 
 const routes = [
-  adminRoutes,
   appRoutes,
   authRoutes,
+  adminRoutes,
+
   {
     path: "/",
     name: "home",
-    component: () => import("../../views/Categories.vue"),
+    redirect: "app",
+    component: () => import("@/components/layouts/AppLayout.vue"),
     meta: {
       middleware: [authMiddleware()],
     },
+    children: [
+      {
+        path: "/",
+        name: "home",
+        component: () =>
+          import("@/views/app/products/ProductsSingleCategory.vue"),
+        meta: {
+          cleanLayout: true,
+        },
+      },
+    ],
   },
   {
     path: "/404",

@@ -132,9 +132,6 @@
             </div>
           </div>
         </template>
-
-        <!-- Paypal -->
-        <v-radio value="paypal" label="Paypal" color="primary lighten-1" />
       </v-radio-group>
     </v-card>
 
@@ -142,6 +139,7 @@
 
     <v-btn
       block
+      rounded
       color="primary"
       @click="next"
       class="mt-5"

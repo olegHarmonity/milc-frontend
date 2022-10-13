@@ -22,10 +22,10 @@
           prepend-icon=""
         />
 
-        <v-label>{{ $t("labels.copyrightInfo") }}<req /></v-label>
         <v-textarea
           v-model="value.marketing_assets.copyright_information"
           outlined
+          :label="$t('labels.copyrightInfo')"
           :rules="[rule.required]"
         />
       </v-col>

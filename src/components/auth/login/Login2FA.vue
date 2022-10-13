@@ -23,6 +23,7 @@
     <!-- Submit button -->
     <div class="text-center">
       <v-btn
+        rounded
         color="primary"
         type="submit"
         :disabled="!isValid"

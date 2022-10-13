@@ -5,20 +5,33 @@
     <v-row class="page-section">
       <!-- Left -->
       <v-col class="pr-md-10" cols="12" md="6">
-        <v-label>{{ $t("labels.title") }}<req /></v-label>
-        <v-text-field v-model="value.title" :rules="[rule.required]" />
+        <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.title')"
+          v-model="value.title"
+          :rules="[rule.required]"
+        />
 
-        <v-label>{{ $t("labels.titleAlternative") }}</v-label>
-        <v-text-field v-model="value.alternative_title" />
+        <v-text-field
+          rounded
+          outlined
+          :label="$t('labels.titleAlternative')"
+          v-model="value.alternative_title"
+        />
 
-        <v-label>{{ $t("labels.runtime") }}<req /></v-label>
         <duration-picker
           v-model="value.runtime"
+          :label="$t('labels.runtime')"
+          rounded
+          outlined
           :rules="[rule.required, rule.duration]"
         />
 
-        <v-label>{{ $t("labels.contentType") }}<req /></v-label>
         <v-select
+          rounded
+          outlined
+          :label="$t('labels.contentType')"
           v-model="value.content_type_id"
           :items="$store.getters['movieContentTypes/items']"
           :rules="[rule.required]"
@@ -28,24 +41,26 @@
 
         <v-checkbox
           v-model="value.allow_requests"
+          color="red"
           :label="$t('labels.allowRequests')"
         />
 
-        <v-label>{{ $t("labels.synopsis") }}<req /></v-label>
         <v-textarea
+          :label="$t('labels.synopsis')"
           v-model="value.synopsis"
           :rules="[rule.required]"
           outlined
           rows="8"
         />
 
-        <v-label>{{ $t("labels.keywords") }}</v-label>
         <v-combobox
+          rounded
+          outlined
+          :label="$t('labels.keywords')"
           v-model="value.keywords"
           multiple
           chips
           deletable-chips
-          outlined
           append-icon=""
         />
       </v-col>
@@ -73,24 +88,24 @@
         />
 
         <div class="form-box">
-          <v-label>{{ $t("labels.languageOriginal") }}<req /></v-label>
           <language-picker
+            :fieldLabel="$t('labels.languageOriginal')"
             v-model="value.original_language"
             :attrs="{
               rules: [rule.required],
             }"
           />
 
-          <v-label>{{ $t("labels.dubbing") }}</v-label>
           <language-picker
+            :fieldLabel="$t('labels.dubbing')"
             v-model="value.dubbing_languages"
             :attrs="{
               multiple: true,
             }"
           />
 
-          <v-label>{{ $t("labels.subtitles") }}</v-label>
           <language-picker
+            :fieldLabel="$t('labels.subtitles')"
             v-model="value.subtitle_languages"
             :attrs="{
               multiple: true,
@@ -99,17 +114,37 @@
         </div>
 
         <div class="form-box">
-          <v-label>{{ $t("labels.website") }}</v-label>
-          <v-text-field v-model="value.links.website" :rules="[rule.url]" />
+          <v-text-field
+            rounded
+            outlined
+            :label="$t('labels.website')"
+            v-model="value.links.website"
+            :rules="[rule.url]"
+          />
 
-          <v-label>{{ $t("labels.imdb") }}</v-label>
-          <v-text-field v-model="value.links.imdb" :rules="[rule.url]" />
+          <v-text-field
+            rounded
+            outlined
+            :label="$t('labels.imdb')"
+            v-model="value.links.imdb"
+            :rules="[rule.url]"
+          />
 
-          <v-label>{{ $t("labels.facebook") }}</v-label>
-          <v-text-field v-model="value.links.facebook" :rules="[rule.url]" />
+          <v-text-field
+            rounded
+            outlined
+            :label="$t('labels.facebook')"
+            v-model="value.links.facebook"
+            :rules="[rule.url]"
+          />
 
-          <v-label>{{ $t("labels.twitter") }}</v-label>
-          <v-text-field v-model="value.links.twitter" :rules="[rule.url]" />
+          <v-text-field
+            rounded
+            outlined
+            :label="$t('labels.twitter')"
+            v-model="value.links.twitter"
+            :rules="[rule.url]"
+          />
         </div>
       </v-col>
     </v-row>

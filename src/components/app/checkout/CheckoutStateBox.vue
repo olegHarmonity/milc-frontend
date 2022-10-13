@@ -17,6 +17,7 @@
       </h2>
 
       <v-btn
+        rounded
         color="primary"
         class="px-10 mt-8"
         :to="{ name: 'app.orders.view', params: { id: order.id } }"
@@ -34,6 +35,15 @@ export default {
       type: Object,
       required: true,
     },
+  },
+
+  mounted() {
+    if (this.order.state === "contract_accepted") {
+      this.$store.dispatch(
+        "products/removeSavedProduct",
+        this.order.rights_bundle.product_id
+      );
+    }
   },
 
   computed: {

@@ -3,6 +3,7 @@ import authMiddleware from "../middleware/auth";
 
 export default {
   path: "/app",
+
   meta: {
     middleware: [authMiddleware()],
   },
@@ -134,6 +135,11 @@ export default {
     {
       path: "notifications",
       name: "app.notifications",
+      component: () => import("@/views/app/Notifications.vue"),
+    },
+    {
+      path: "cart",
+      name: "app.cart",
       component: () => import("@/views/app/Notifications.vue"),
     },
   ],

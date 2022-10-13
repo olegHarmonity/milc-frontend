@@ -14,8 +14,8 @@
       :alt="product.title"
       @error="imageError = true"
       aspect-ratio="1"
-      width="154"
-      height="230"
+      width="200"
+      height="290"
       class="single-category-item-image"
     >
       <template v-slot:placeholder>
@@ -38,9 +38,11 @@
           <span>{{ $formatDuration(product.runtime, "seconds", "H:m") }}</span>
           <span>{{ $codeToLanguage(product.original_language) }}</span>
         </small>
-        <v-btn icon @click.stop="saveProduct">
-          <v-icon>{{ isSaved ? "mdi-heart" : "mdi-heart-outline" }}</v-icon>
-        </v-btn>
+        <div class="d-flex justify-center">
+          <v-btn v-if="!myProduct" icon @click.stop="saveProduct">
+            <v-icon>{{ isSaved ? "mdi-heart" : "mdi-heart-outline" }}</v-icon>
+          </v-btn>
+        </div>
       </div>
     </div>
   </div>
@@ -56,6 +58,7 @@ export default {
       timeout: null,
       imageError: false,
       isSaved: null,
+      myProduct: false,
     };
   },
   props: {
@@ -107,14 +110,16 @@ export default {
   },
   mounted() {
     this.isSaved = this.product.is_saved;
+    this.myProduct =
+      this.$store.getters["auth/user"].organisation_id ==
+      this.product.organisation_id;
   },
 };
 </script>
-
 <style lang="scss" scoped>
 .products-single-category-item {
   cursor: pointer;
-  height: 230px;
+
   transition: height 0.5s linear;
   position: relative;
   .single-category-item-image {
@@ -141,27 +146,32 @@ export default {
     }
     h3 {
       font-size: 14px;
+
       font-weight: 500;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .product-info-others {
       font-size: 10px;
       font-weight: 400;
       position: relative;
-      > button {
-        height: 15px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 15px;
-        i {
-          font-size: 15px;
-        }
-      }
+      // > button {
+      //   height: 15px;
+      //   position: absolute;
+      //   top: 0;
+      //   right: 0;
+      //   width: 15px;
+      //   i {
+      //     font-size: 15px;
+      //   }
+      // }
       small {
         align-items: center;
         display: flex;
-        height: 15px;
-        font-size: 10px;
+        flex-wrap: wrap;
+
+        font-size: 12px;
         i {
           font-size: 10px !important;
           height: 100%;

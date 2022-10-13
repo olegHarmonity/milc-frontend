@@ -47,6 +47,7 @@ export default {
         "products/fetch",
         this.$route.params.id
       );
+
       const items = await this.$store.dispatch(
         "mediahub/getItemsForAsset",
         product.external_reference

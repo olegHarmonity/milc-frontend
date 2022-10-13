@@ -20,6 +20,7 @@
 
     <div class="text-center" v-if="showButton">
       <v-btn
+        rounded
         color="primary"
         @click="sendVerificationLink"
         :loading="$store.getters['auth/loading'].sendVerificationLink"

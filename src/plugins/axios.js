@@ -18,6 +18,7 @@ function setAuthorizationHeader(config) {
   }
 
   const token = localStorage.getItem("token");
+
   config.headers.Authorization = `Bearer ${token}`;
 }
 

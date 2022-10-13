@@ -6,9 +6,9 @@
     <!-- User details -->
     <h2 class="page-heading">{{ $t("settings.headings.user") }}</h2>
 
-    <v-alert text type="warning" class="mt-5">
+    <!-- <v-alert text type="warning" class="mt-5">
       {{ $t("settings.requiredFieldsNotice") }}
-    </v-alert>
+    </v-alert> -->
 
     <div class="page-section">
       <SettingsUserForm />

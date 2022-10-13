@@ -23,6 +23,8 @@
 
     <v-label>{{ $t("labels.email") }}<req /></v-label>
     <v-text-field
+      rounded
+      outlined
       v-model="value.email"
       :rules="[rule.required, rule.email]"
       type="email"

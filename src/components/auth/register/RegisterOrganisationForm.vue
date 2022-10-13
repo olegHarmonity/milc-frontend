@@ -48,6 +48,8 @@
       <v-row>
         <v-col cols="12" sm="6">
           <country-picker
+            rounded="true"
+            outlined="true"
             v-model="value.organisation.country"
             :attrs="{
               label: $t('labels.country'),
@@ -135,22 +137,6 @@
             :label="$t('labels.website')"
             :rules="[rule.url]"
           />
-          <v-row class="d-flex justify-space-between pl-5">
-            <v-col cols="8" class="d-flex align-center">
-              <span>Company logo</span>
-            </v-col>
-            <v-col cols="2" class="d-flex justify-end pt-0">
-              <v-file-input
-                v-model="value.organisation.logo"
-                :label="$t('labels.orgLogo')"
-                accept=".jpg, .jpeg, .png"
-                show-size
-                prepend-icon="$vuetify.icons.upload"
-                hide-details="auto"
-                hide-input
-              ></v-file-input
-            ></v-col>
-          </v-row>
         </v-col>
       </v-row>
     </div>

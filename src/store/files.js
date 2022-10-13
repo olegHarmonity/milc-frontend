@@ -38,7 +38,7 @@ export default {
     async uploadImage({ commit }, image) {
       try {
         commit("SET_LOADING", { key: "upload", value: true });
-
+        console.log(serialize(image));
         const res = await axios.post("images", serialize({ image }));
 
         return res.data;

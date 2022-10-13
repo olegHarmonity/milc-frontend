@@ -93,20 +93,25 @@
               @confirm="deleteProduct"
             />
           </template>
-
-          <v-btn
-            v-else
-            color="error"
-            text
-            style="font-size: 15px; letter-spacing: 0px"
-            :loading="
-              $store.getters['products/loading'].removeSavedProduct ==
-              product.id
-            "
-            @click="removeSavedProduct"
-          >
-            {{ $t("buttons.removeFromSaved") }}
-          </v-btn>
+          <template v-else>
+            <BuyBundleButton
+              :product="product"
+              :bundle="this.product.rights_bundles[0]"
+            />
+            <v-btn
+              class="ml-5"
+              color="error"
+              text
+              style="font-size: 15px; letter-spacing: 0px"
+              :loading="
+                $store.getters['products/loading'].removeSavedProduct ==
+                product.id
+              "
+              @click="removeSavedProduct"
+            >
+              {{ $t("buttons.removeFromSaved") }}
+            </v-btn>
+          </template>
         </v-col>
       </v-row>
     </v-col>
@@ -114,6 +119,7 @@
 </template>
 
 <script>
+import BuyBundleButton from "./product-page/parts/BuyBundleButton.vue";
 export default {
   props: {
     product: {
@@ -125,7 +131,6 @@ export default {
       default: false,
     },
   },
-
   data: () => ({
     imageError: false,
   }),
@@ -136,9 +141,8 @@ export default {
         this.imageError ||
         !this.product.marketing_assets?.key_artwork?.image_url
       ) {
-        return "https://via.placeholder.com/170x250/555555?text=MILC%20Platform";
+        return "https://via.placeholder.com/170x250/555555?text=MILC Platform";
       }
-
       return this.product.marketing_assets?.key_artwork?.image_url;
     },
   },
@@ -165,6 +169,8 @@ export default {
         });
     },
   },
+
+  components: { BuyBundleButton },
 };
 </script>
 

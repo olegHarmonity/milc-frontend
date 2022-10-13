@@ -5,8 +5,8 @@
 <script>
 export default {
   created() {
-    if (!this.$isSeller() && this.$route.name === "app.products") {
-      this.$router.replace({ name: "app.orders" });
+    if (this.$route.name === "auth.login") {
+      this.$router.replace({ name: "home" });
     }
   },
 };
