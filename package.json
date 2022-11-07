@@ -38,6 +38,7 @@
     "vue-apexcharts": "^1.6.2",
     "vue-debounce": "^3.0.1",
     "vue-i18n": "^8.26.3",
+    "vue-phone-number-input": "^1.12.13",
     "vue-router": "^3.2.0",
     "vue-tel-input-vuetify": "^1.4.1",
     "vue-toast-notification": "^0.6.2",

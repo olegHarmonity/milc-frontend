@@ -42,6 +42,26 @@
     margin: 0 !important;
   }
 
+  .v-text-field__details {
+    margin: 0 !important;
+  }
+
+  .input-tel.lg .input-tel__input[data-v-e59be3b4] {
+    min-height: 55px !important;
+    border-color: white !important;
+    background-color: transparent !important;
+  }
+
+  .country-selector.lg .country-selector__input[data-v-46e105de] {
+    min-height: 55px !important;
+    border-color: white !important;
+    background-color: transparent !important;
+    color: white !important;
+  }
+  .country-selector__label[data-v-46e105de] {
+    display: none !important;
+  }
+
   // HTML Tags ----------------------------------------------------------------------------
   a {
     color: #ffffff;

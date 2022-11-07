@@ -60,8 +60,8 @@
       <v-row>
         <v-col>
           <country-picker
-            rounded="true"
-            outlined="true"
+            v-bind:rounded="true"
+            v-bind:outlined="true"
             v-model="value.country"
             :attrs="{
               label: $t('labels.country'),
